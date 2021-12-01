@@ -113,9 +113,8 @@ def gettext_noop(s):
     return s
 
 LANGUAGES = [
-    {"en", gettext_noop("English")},
-    {"tr", gettext_noop("Turkish")},
-
+    ("en", gettext_noop("English")),
+    ("tr", gettext_noop("Turkish")),
 ]
 
 TIME_ZONE = 'Europe/Istanbul'
