@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'ecommerce_myself.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "bootcampecommerce_myself",
+        'HOST': 'localhost',
+        'USER': 'bootcamp_myself',
+        'PASSWORD': '123123',
+        'PORT': '5432'
     }
 }
 
@@ -103,9 +107,18 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
-TIME_ZONE = 'UTC'
+def gettext_noop(s):
+    return s
+
+LANGUAGES = [
+    {"en", gettext_noop("English")},
+    {"tr", gettext_noop("Turkish")},
+
+]
+
+TIME_ZONE = 'Europe/Istanbul'
 
 USE_I18N = True
 
@@ -118,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
